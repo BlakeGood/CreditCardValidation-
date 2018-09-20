@@ -3,34 +3,35 @@ import java.util.Arrays;
 import java.util.Scanner;
 public class Validating
 	{
+		static Long[] userNumberArray = new Long[16];
+		static int userchoice;
 
-		public static void main(String[] args) 
+		public static void main(String[] args) throws IOException
 		{
-			userPath1();
-			userPath2();	
-			// Lets user choose path
-			
-		}
-			
-		public static void userPath1()
-		{
-			
-			// Lets User Choose a Path 
+			// pick a path
 			Scanner userPath = new Scanner(System.in);
 			System.out.println("Please choose either ");
 			System.out.println("1: I would like to input my credit card number.");
 			System.out.println("or");
 			System.out.println("2: I would like to input random numbers.");
 			int userChoice = userPath.nextInt();
-			
-						Long[] userNumberArray = new Long[16];
-						Long[] userNumberArray2 = new Long[16];
-			// Path 1
+			long [] userNumberArray = new long [16];
 			
 			if(userChoice == 1)
 				{
-			// Stores Credit Card # In Array 
-					
+					pathOne();
+				}
+			else
+				{
+					pathTwo();
+				}
+			
+		}
+			
+		public static void pathOne()
+		{
+			
+			
 					System.out.println("Please input your credit card number");
 					Scanner userInput = new Scanner(System.in);
 					Long userNumber = userInput.nextLong();
@@ -82,21 +83,22 @@ public class Validating
 						
 			}
 			
-		}
+	
 			
 		
-		public static void userPath2()
+		public static void pathTwo() throws IOException
 		{
-		if (userChoice == 2)
-				{
-					Scanner file1 = new Scanner (new File ("creditCardNumbers.txt"));
-
-					while (file1.hasNext()) 
-					{
-						System.out.println(file1.next());
-					}
+		
+				int counter = 0;
 					
-				}
+				Scanner file1 = new Scanner (new File ("creditCardNumbers.txt"));
+				
+					for (int i = 0; i <= 100; i++)
+						{
+							long userNumberArray = file1.nextLong(); 
+							
+						}
+				
 		}
 		
 	}
